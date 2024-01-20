@@ -1,5 +1,5 @@
-import { db } from "./db";
 import { getSelf } from "./auth-service";
+import { db } from "./db";
 
 export const getFollowedUsers = async () => {
     try {
@@ -17,7 +17,11 @@ export const getFollowedUsers = async () => {
                 },
             },
             include: {
-                following: true,
+                following: {
+                    include: {
+                        stream: true,
+                    }
+                },
             },
         });
 
