@@ -31,7 +31,7 @@ export const Container = ({
                 collapsed ? "ml-[70px]" : "ml-[70px] lg:ml-60"
             )}
         >
-            Container
+            {children}
         </div>
     );
 };
