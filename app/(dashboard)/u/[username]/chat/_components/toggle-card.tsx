@@ -5,6 +5,7 @@ import { useTransition } from "react";
 
 import { updateStream } from "@/actions/stream";
 import { Switch } from "@/components/ui/switch";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type FieldTypes = "isChatEnabled" | "isChatDelayed" | "isChatFollowersOnly"
 
@@ -46,5 +47,11 @@ export const ToggleCard = ({
                 </div>
             </div>    
         </div>
-    )
-}
+    );
+};
+
+export const ToggleCardSkeleton = () => {
+    return (
+        <Skeleton className="rounded-xl p-10 w-full" />
+    );
+};
