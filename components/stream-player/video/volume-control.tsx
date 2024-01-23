@@ -2,8 +2,8 @@
 
 import { Volume1, Volume2, VolumeX } from "lucide-react";
 
-import { Hint } from "../hint";
-import { Slider } from "@/components/ui/slider"
+import { Slider } from "@/components/ui/slider";
+import { Hint } from "../../hint";
 
 interface VolumeControlProps {
     onToggle: () => void;
@@ -11,7 +11,7 @@ interface VolumeControlProps {
     value: number;
 }
 
-import React from 'react'
+import React from "react";
 
 export const VolumeControl = ({
     onToggle,
@@ -32,7 +32,7 @@ export const VolumeControl = ({
     const label = isMuted ? "Unmute" : "Mute";
 
     const handleChange = (value: number[]) => {
-        onChange(value[0])
+        onChange(value[0]);
     };
 
     return (
@@ -53,5 +53,5 @@ export const VolumeControl = ({
                 step={1}
             />
         </div>
-    )
-}
+    );
+};
