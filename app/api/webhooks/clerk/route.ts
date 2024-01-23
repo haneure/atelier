@@ -1,3 +1,4 @@
+import { resetIngresses } from '@/actions/ingress'
 import { db } from '@/lib/db'
 import { WebhookEvent } from '@clerk/nextjs/server'
 import { headers } from 'next/headers'
@@ -77,6 +78,8 @@ export async function POST(req: Request) {
     }
 
     if (eventType === "user.deleted") {
+        await resetIngresses(payload.data.id);
+
         await db.user.delete({
             where: {
                externalUserId: payload.data.id, 
