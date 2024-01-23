@@ -29,7 +29,8 @@ export const UserItem = ({
     const isActive = pathname === href;
 
     return (
-        <Button asChild
+        <Button 
+        asChild
         variant="ghost"
         className={cn(
             "w-full h-12",
@@ -47,10 +48,8 @@ export const UserItem = ({
                         imageUrl={imageUrl}
                         username={username}
                         isLive={isLive}
-                        size="default"
-                        // showBadge
                     />
-                    {!collapsed &&(
+                    {!collapsed && (
                         <p className="truncate">{username}</p>
                     )}
                     {!collapsed && isLive && (
