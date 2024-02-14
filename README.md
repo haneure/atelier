@@ -53,7 +53,9 @@ CLERK_WEBHOOK_SECRET=
 
 ## Livekit
 We also need the API Key for Livekit, Livekit is the services that leverage streaming capabilities for our application. It uses RTMP (Real-Time Messaging Protocol) / WHIP protocols for Ingesting streams.
-1. Create an account and go to settings. Choose add a new key and you should get the values for the `API_KEY`, `API_SECRET` and `WEBSOCKET_URL`. For the URL, the path is the same, you just need to change `wss` to `https` for the websocket and the normal url. Just like this:
+1. Create an account on https://livekit.io and go to the settings. 
+
+2. Choose `add a new key`, you can fill the description if you want. Now, you should get the values for the `API_KEY`, `API_SECRET` and `WEBSOCKET_URL`. For the URL and Websocket URL, the rest of the path is the same, you just need to change `wss://` for the websocket and to `https://` for the normal url. Just like this:
 ```
 LIVEKIT_API_KEY=
 LIVEKIT_API_SECRET=
@@ -61,7 +63,8 @@ LIVEKIT_API_URL=http://<url>
 NEXT_PUBLIC_LIVEKIT_WS_URLwss://<url>
 ```
 ![Livekit](./public/readme/readme_livekit.png)
-2. Next we want to connect the webhooks. We also use the ngrok domain for this webhook. Choose the signing api key from the one that created earlier.
+
+2. Next we want to connect the webhooks. We also use the ngrok domain for this webhook. Fill the `URL` with the ngrok domain with `/api/webhooks/livekit` added, because this is where i set my application `path` to receive the webhooks. Choose the signing api key from the one that created earlier.
 ```
 https://<ngrok_domain>/api/webhooks/livekit
 ```
@@ -107,8 +110,8 @@ npx prisma studio
 
 
 ## Uploadthing
-Last, I'm using Uploadthing for the online file storage.
-1. First, create an account at https://uploadthing.com/
+And for the last service, I'm using Uploadthing for the online file storage.
+1. First, create an account at https://uploadthing.com
 2. Go to the dashboard and look at API Keys.
 3. Copy the value to your `.env` file
 ```
@@ -121,7 +124,7 @@ And now you're done! Great great job!
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 # Live Streaming
-For live streaming, you may use OBS or any live streaming platform that you prefer. After the application is up and running, you may create a new account. To start streaming on your own application, you can follow these steps:
+For live streaming, you may use OBS or any live streaming platform that you prefer. After the application is up and running, create a new account using any options you like. After signing up, the application will also create a `Stream` data connected to your account and your name should shows in the application homepage. To start streaming on your own application, you can follow these steps:
 1. Go to the dashboard menu
 ![Livestream](./public/readme/readme_livestream.png)
 
